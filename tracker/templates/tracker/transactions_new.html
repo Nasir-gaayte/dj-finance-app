@@ -1,0 +1,47 @@
+
+{% load widget_tweaks %}
+{% load humanize %}
+
+<div class="grid-cols grid-cols-4 gap-4" id="transaction-container">
+        
+                <div>
+                        <button class="btn btn-dark" type="submit">
+                               <a href="{% url 'transactions-list' %}" >
+                                back
+                               </a>
+                        </button>
+                </div>
+
+               <div>
+                <form hx-post="{% url 'add_transaction' %}"   >
+                       
+                        
+                               
+                        <div class="mb-2 form-control">
+                               {{form.category|add_label_class:"label"}}
+                               {% render_field form.category  class="input"  %}
+                        </div>
+                        <div class="mb-2 form-control">
+                                {{form.amount|add_label_class:"label"}}
+                                {% render_field form.amount class="input"   %}
+                        </div>
+                        <div class="mb-2 form-control">
+                                {{form.type|add_label_class:"label"}}
+                               {% render_field form.type class="input" %}
+                        </div>
+                        <div class="mb-2 form-control">
+                                {{form.date|add_label_class:"label"}}
+                                {% render_field form.date class="input"  %}
+                        </div>
+
+
+                        <div class="form-control">
+                                <button type="submit" class="btn btn-success" >
+                                        Add
+                                </button>
+                        </div>
+                </form>
+               </div>
+
+      
+</div>

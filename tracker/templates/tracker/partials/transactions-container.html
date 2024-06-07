@@ -27,10 +27,20 @@
                         </table>
                 </div>
 
-                
-                <h1 class="mt-8 md-4 prose prose-2x1 text-white">
-                        Transactions
-                </h1>
+                <div class="flex justify-between items-center mt-4 mb-6 ">
+                       
+                        <h1 class="mt-8 md-4 prose prose-2x1 text-white">
+                                Transactions
+                        </h1>
+                        <a hx-get="{% url 'add_transaction' %}" hx-push-url="true"
+                        hx-target="#transaction-block"
+                        class="cursor-pointer">
+                                <svg  xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 mr-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                        </a>
+                                                
+                </div>                
 {% if filter.qs %}
 <table class="table" >
         <thead class="text-xs text-white uppercase" >
@@ -75,11 +85,11 @@
                         </div>
                         <div class="mb-2 form-control">
                                 {{filter.form.start_date|add_label_class:"label text-white"}}
-                                {% render_field filter.form.start_date class="inupt bg-gray-50 text-gray-900" %}
+                                {% render_field filter.form.start_date class="inupt" %}
                         </div>
                         <div class="mb-2 form-control">
                                 {{filter.form.end_date|add_label_class:"label text-white"}}
-                                {% render_field filter.form.end_date class="input bg-gray-50 text-gray-900" %}
+                                {% render_field filter.form.end_date class="input" %}
                         </div>
                         <div class="mb-5 form-control">
                                 {{filter.form.category|add_label_class:"label text-white"}}
